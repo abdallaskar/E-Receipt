@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فاتورة ضريبية</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" id="invoice-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="invoice-container  p-md-4">
+
+                    <!-- Header Section -->
+                    <div class="header row ">
+                        <div class="col-md-6">
+                            <div class="logo-placeholder">
+                                <img src="myLogo.jpg" width="90px" height="60px">
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-start">
+                            <div class="mb-1" id="reciptNumber"><strong>رقم الفاتورة:</strong></div>
+                            <div class="mb-1" id="reciptDataA"><strong>التاريخ الهجري:</strong> </div>
+                            <div class="mb-1" id="reciptDataB"><strong>التاريخ الميلادي :</strong> </div>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Title -->
+                    <h2 class="invoice-title text-center">فاتورة ضريبية</h2>
+
+                    <!-- Client & Company Info -->
+                    <div class="row">
+                        <!-- Cleint info  -->
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="info-title">العميل</div>
+                                <div class="mb-1">
+                                    <strong>الاسم:</strong>
+                                    <input type="text" class="form-control form-control-sm d-inline-block w-75"
+                                        value="شركة النخبة للتجارة">
+                                </div>
+                                <div class="mb-1">
+                                    <strong>الرقم الضريبي:</strong>
+                                    <input type="text" class="form-control form-control-sm d-inline-block width"
+                                        value="310123456789">
+                                </div>
+                                <div class="mb-1">
+                                    <strong>العنوان:</strong>
+                                    <input type="text" class="form-control form-control-sm d-inline-block w-75"
+                                        value="الرياض - حي المروج">
+                                </div>
+                                <div>
+                                    <strong>الهاتف :</strong>
+                                    <input type="text" class="form-control form-control-sm d-inline-block w-75"
+                                        value="0123654563">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Company info  -->
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="info-title">البائع</div>
+                                <div class="mb-2"><strong>الاسم:</strong> شركة التقنية المتطورة</div>
+                                <div class="mb-2"><strong>الرقم الضريبي:</strong> 310987654321</div>
+                                <div class="mb-2"><strong>العنوان:</strong> جدة - حي الصفا</div>
+                                <div><strong>هاتف:</strong> 0123456789</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- button for adding new item -->
+                    <button class="btn btn-primary btn-sm add-item-btn" id="add-item-btn">
+                        <i class="bi bi-plus"></i> إضافة صنف
+                    </button>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered ">
+                            <thead class="table-light">
+                                <tr>
+                                    <th width="3%">#</th>
+                                    <th width="35%">الوصف</th>
+                                    <th width="10%">الكمية</th>
+                                    <th width="10%">سعر الوحدة</th>
+                                    <th width="15%">المبلغ</th>
+                                    <th width="5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Totals & Signature -->
+                    <div class="row">
+                        <!-- Totals -->
+                        <div class="col-md-6">
+                            <div class="totals-card border rounded p-1 bg-light">
+                                <table class="table table-borderless ">
+                                    <tbody>
+                                        <!-- Subtotal Row -->
+                                        <tr class="border-bottom">
+                                            <td class="text-start fw-bold">المجموع قبل الضريبة:</td>
+                                            <td class="text-start" id="subtotal">0.00 </td>
+                                        </tr>
+                                        <!-- Tax Rate Row -->
+                                        <tr class="border-bottom">
+                                            <td class="text-start">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <strong> الضريبة </strong>
+                                                    <input type="number" step="1" min="0" max="100"
+                                                        class="form-control form-control-sm w-25 text-center"
+                                                        id="tax-rate" value="15">
+                                                    <strong class="ms-2">%:</strong>
+                                                </div>
+                                            </td>
+                                            <td class="text-start" id="tax-amount">0.00 </td>
+                                        </tr>
+                                        <!-- Total Row -->
+                                        <tr class="table-active border-bottom">
+                                            <td class="text-start fw-bold">الإجمالي:</td>
+                                            <td class="text-start fw-bold" id="total">0.00</td>
+                                        </tr>
+                                        <!-- Save Button Row -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Signature -->
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column  pt-4 ps-4">
+                                <!-- Stamp Circle -->
+                                <div class="stamp-placeholder rounded-circle d-flex flex-column justify-content-center align-items-center mb-3"
+                                    style="width: 120px; height: 120px; border: 2px dashed #ccc; background-color: #f8f9fa;">
+                                    <i class="bi bi-stamp fs-4 text-muted"></i>
+                                    <small class="text-muted pt-2">الختم</small>
+                                </div>
+                                <!-- Signature Line -->
+                                <div class="signature-placeholder d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">التوقيع /</small>
+                                    <button class="btn btn-secondary w-50" id="save_recpit">
+                                        <i class="bi bi-save me-1"></i>حفظ
+                                    </button>
+
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Footer -->
+                <div class="footer text-center   border-top">
+                    <p class="">شكراً لتعاملكم معنا | للاستفسارات يرجى الاتصال على 920000000</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="main.js" type="module"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</body>
+
+</html>
