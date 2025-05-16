@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0066ff;
+    --secondary-color: #6c5ce7;
+    --accent-color: #00d2d3;
+    --light-bg: #f8f9ff;
+    --card-bg: #ffffff;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --success: #00b894;
+    --danger: #ff7675;
+    --border-radius: 12px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--light-bg);
+    padding: 0;
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.invoice-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.invoice-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-placeholder {
+    width: 180px;
+    height: 80px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.logo-placeholder:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-title {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.invoice-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    margin: 0.5rem auto 0;
+    border-radius: 4px;
+}
+
+.info-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.info-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.info-title {
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.info-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.info-card .width {
+    width: 48%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+}
+
+.table th {
+    background-color: rgba(0, 102, 255, 0.05);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+}
+
+.table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.table td {
+    padding: 0.85rem 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover td {
+    background-color: rgba(0, 102, 255, 0.02);
+}
+
+.table th *,
+.table td * {
+    text-align: center;
+}
+
+.auto-expand {
+    min-height: 38px;
+    transition: var(--transition);
+}
+
+.totals-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.qr-placeholder {
+    width: 120px;
+    height: 120px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-image: repeating-linear-gradient(0deg,
+            var(--border-color),
+            var(--border-color) 4px,
+            transparent 4px,
+            transparent 8px);
+    opacity: 0.3;
+}
+
+.footer {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    outline: none;
+}
+
+.form-control-sm {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+}
+
+.add-item-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.6rem 1.25rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 102, 255, 0.2);
+    margin-bottom: 1.25rem;
+}
+
+.add-item-btn:hover {
+    background-color: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 102, 255, 0.3);
+}
+
+.add-item-btn::before {
+    content: '+';
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* RTL Support for Arabic invoices */
+[dir="rtl"] .invoice-container::before {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .info-title::before {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* Digital elements */
+input,
+select,
+textarea {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* Delete item button styling */
+.delete-btn {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.delete-btn:hover {
+    background-color: #e74c3c;
+    transform: scale(1.1);
+}
+
+/* Print-friendly styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .invoice-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .add-item-btn,
+    .delete-btn,
+    button[type="button"] {
+        display: none;
+    }
+}
