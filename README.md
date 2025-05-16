@@ -38,6 +38,8 @@ It allows users to create tax invoices for businesses or clients and supports do
 - **CSS3**
 - **Bootstrap 5**
 - **Vanilla JavaScript**
+## live Demo 
+[click here and try demo](https://abdallaskar.github.io/E-Receipt/)
 
 ## 📸 Screenshot
 
